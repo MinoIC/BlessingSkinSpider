@@ -85,16 +85,16 @@ func main() {
 						go func(item *Item) {
 							imgSrc := target + "/textures/" + item.Hash
 							img, _ := http.Get(imgSrc)
-							f, err := os.Create(path + `\` + item.Name + strconv.Itoa(int(item.Tid)) + `.png`)
-							if err != nil {
-								fmt.Println(err)
-							} else {
-								_, _ = io.Copy(f, img.Body)
-							}
-							_ = f.Close()
 							fmt.Println("name: "+item.Name+"count: ", count, "status: ", img.StatusCode)
 							if img.StatusCode == 200 {
 								success = success + 1
+								f, err := os.Create(path + `\` + item.Name + strconv.Itoa(int(item.Tid)) + `.png`)
+								if err != nil {
+									fmt.Println(err)
+								} else {
+									_, _ = io.Copy(f, img.Body)
+								}
+								_ = f.Close()
 							} else {
 								failed = failed + 1
 							}
