@@ -39,7 +39,7 @@ const (
 		target host name such as https://skin.example.com
 		dont put / as suffix !!!!
 	*/
-	target = "https://littleskin.cn"
+	target = ""
 	/* spider type
 	"skin": all the skins
 	"steve": steve skins
